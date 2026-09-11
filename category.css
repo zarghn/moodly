@@ -1,0 +1,330 @@
+/* ۱. تعریف فونت جدید */
+@font-face {
+    font-family: 'Bridger';
+    src: url('Bridger.woff2') format('woff2'), /* نام و پسوند فایل فونت خود را وارد کنید */
+         url('Bridger.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ۲. اعمال فونت به کل صفحه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bridger', 'Fraunces', 'Segoe UI', Tahoma, sans-serif; /* تغییر فونت اصلی */
+}
+
+/* --------------------------------------------------
+   SITE-WIDE ANIMATED BACKGROUND (gooey blobs + grain)
+-------------------------------------------------- */
+:root {
+  --site-bg1: rgb(215, 215, 218);
+  --site-bg2: rgb(178, 178, 182);
+
+  --site-color1: 255, 255, 255;      /* سفید */
+  --site-color2: 90, 90, 90;         /* خاکستری تیره */
+  --site-color3: 170, 170, 170;      /* خاکستری میانه */
+  --site-color4: 40, 40, 40;         /* تقریبا مشکی */
+  --site-color5: 210, 210, 210;      /* خاکستری خیلی روشن */
+  --site-color-interactive: 59, 43, 238; /* آبی برند، فقط موقع موو موس */
+
+  --site-circle-size: 80%;
+  --site-blending: multiply;
+}
+
+@keyframes siteMoveInCircle {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes siteMoveVertical {
+  0%   { transform: translateY(-50%); }
+  50%  { transform: translateY(50%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes siteMoveHorizontal {
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%) translateY(10%); }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(40deg, var(--site-bg1), var(--site-bg2));
+}
+
+.site-bg svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.site-bg-gradients {
+  filter: url(#site-goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.site-bg .g1,
+.site-bg .g2,
+.site-bg .g3,
+.site-bg .g4,
+.site-bg .g5,
+.site-bg .interactive {
+  position: absolute;
+  mix-blend-mode: var(--site-blending);
+}
+
+.site-bg .g1 {
+  background: radial-gradient(circle at center, rgba(var(--site-color1), 0.8) 0, rgba(var(--site-color1), 0) 50%) no-repeat;
+  width: var(--site-circle-size);
+  height: var(--site-circle-size);
+  top: calc(50% - var(--site-circle-size) / 2);
+  left: calc(50% - var(--site-circle-size) / 2);
+  transform-origin: center center;
+  animation: siteMoveVertical 30s ease infinite;
+  opacity: 1;
+}
+
+.site-bg .g2 {
+  background: radial-gradient(circle at center, rgba(var(--site-color2), 0.8) 0, rgba(var(--site-color2), 0) 50%) no-repeat;
+  width: var(--site-circle-size);
+  height: var(--site-circle-size);
+  top: calc(50% - var(--site-circle-size) / 2);
+  left: calc(50% - var(--site-circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: siteMoveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+
+.site-bg .g3 {
+  background: radial-gradient(circle at center, rgba(var(--site-color3), 0.8) 0, rgba(var(--site-color3), 0) 50%) no-repeat;
+  width: var(--site-circle-size);
+  height: var(--site-circle-size);
+  top: calc(50% - var(--site-circle-size) / 2 + 200px);
+  left: calc(50% - var(--site-circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: siteMoveInCircle 40s linear infinite;
+  opacity: 1;
+}
+
+.site-bg .g4 {
+  background: radial-gradient(circle at center, rgba(var(--site-color4), 0.8) 0, rgba(var(--site-color4), 0) 50%) no-repeat;
+  width: var(--site-circle-size);
+  height: var(--site-circle-size);
+  top: calc(50% - var(--site-circle-size) / 2);
+  left: calc(50% - var(--site-circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: siteMoveHorizontal 40s ease infinite;
+  opacity: 0.7;
+}
+
+.site-bg .g5 {
+  background: radial-gradient(circle at center, rgba(var(--site-color5), 0.8) 0, rgba(var(--site-color5), 0) 50%) no-repeat;
+  width: calc(var(--site-circle-size) * 2);
+  height: calc(var(--site-circle-size) * 2);
+  top: calc(50% - var(--site-circle-size));
+  left: calc(50% - var(--site-circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: siteMoveInCircle 20s ease infinite;
+  opacity: 1;
+}
+
+.site-bg .interactive {
+  background: radial-gradient(circle at center, rgba(var(--site-color-interactive), 0.8) 0, rgba(var(--site-color-interactive), 0) 50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.site-bg .interactive.visible {
+  opacity: 0.7;
+}
+
+.site-noise-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+
+/* کانتینر اصلی - تمام صفحه */
+.music-card {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+/* بخش هدر (تصویر پس‌زمینه پیانو) */
+.header-section {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 80px 40px 80px;
+    color: #fff;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-title {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: #3b59ff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* باکس سرچ */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    padding: 8px 20px;
+    width: 280px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.search-box i {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+.header-subtitle {
+    font-size: 0.85rem;
+    color: #bbb;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.6;
+    max-width: 60%;
+}
+
+/* بخش لیست آهنگ‌ها */
+.songs-section {
+    flex: 1;
+    padding: 50px 80px;
+    color: #111;
+    position: relative;
+    background-color: transparent;
+}
+
+/* هدر جدول (افزایش فاصله زیر تیترها) */
+.table-header {
+    display: grid;
+    grid-template-columns: 80px 2fr 1.5fr 120px;
+    max-width: 900px;
+    margin: 0 auto 95px auto; /* افزایش فاصله پایین تیتر به 65px */
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+/* لیست آهنگ‌ها */
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.song-row {
+    display: grid;
+    grid-template-columns: 80px 2fr 1.5fr 120px;
+    align-items: center;
+    padding: 18px 20px;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    color: #222;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+/* افکت هاور (Hover) */
+.song-row:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.song-number {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.song-title {
+    font-weight: 500;
+}
+
+.song-artist {
+    color: inherit;
+    opacity: 0.9;
+}
+
+.song-duration {
+    text-align: left;
+}
+
+/* نقطه‌های آبی سمت راست */
+.pagination-dots {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: #2b40ff;
+    height: 16px;
+    border-radius: 8px;
+}

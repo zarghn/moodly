@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Musics</title>
+    <link rel="stylesheet" href="category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ==================== SITE-WIDE ANIMATED BACKGROUND ==================== -->
+    <div class="site-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="site-goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="site-bg-gradients">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+      <canvas class="site-noise-canvas" id="site-noise"></canvas>
+    </div>
+
+    <div class="music-card">
+        <!-- بخش هدر بالای صفحه -->
+        <div class="header-section">
+            <div class="header-top">
+                <h1 class="header-title">PIANO MUSICS</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <p class="header-subtitle">
+                THIS NAME USES SPANISH NAMING CUSTOMS: THE FIRST OR PATERNAL FAMILY NAME IS ABELLO AND THE SECOND OF MATERNAL FAMILY NAME IS ESTRABAO.
+            </p>
+        </div>
+
+        <!-- بخش لیست آهنگ‌ها -->
+        <div class="songs-section">
+            <div class="table-header">
+                <div></div>
+                <div>SONGS</div>
+                <div>ARTIST</div>
+                <div></div>
+            </div>
+
+            <div class="song-list">
+                <!-- ردیف ۱ -->
+                <div class="song-row">
+                    <span class="song-number">01</span>
+                    <span class="song-title">I Know What You Did Last Summer</span>
+                    <span class="song-artist">Colmelia Madams</span>
+                    <span class="song-duration">05 : 32</span>
+                </div>
+
+                <!-- ردیف ۲ -->
+                <div class="song-row">
+                    <span class="song-number">02</span>
+                    <span class="song-title">Bad Things</span>
+                    <span class="song-artist">Justin Bieber</span>
+                    <span class="song-duration">05 : 32</span>
+                </div>
+
+                <!-- ردیف ۳ -->
+                <div class="song-row">
+                    <span class="song-number">03</span>
+                    <span class="song-title">Love Incredible</span>
+                    <span class="song-artist">Zara Larson</span>
+                    <span class="song-duration">05 : 32</span>
+                </div>
+
+                <!-- ردیف ۴ -->
+                <div class="song-row">
+                    <span class="song-number">04</span>
+                    <span class="song-title">Know No Better</span>
+                    <span class="song-artist">Eminem</span>
+                    <span class="song-duration">05 : 32</span>
+                </div>
+
+                <!-- ردیف ۵ -->
+                <div class="song-row">
+                    <span class="song-number">05</span>
+                    <span class="song-title">Sangria Wine</span>
+                    <span class="song-artist">Taylor Swift</span>
+                    <span class="song-duration">05 : 32</span>
+                </div>
+            </div>
+
+            <!-- نقطه‌های آبی سمت راست -->
+            <div class="pagination-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="background.js"></script>
+</body>
+</html>

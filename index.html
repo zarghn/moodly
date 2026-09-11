@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Melody - Choose Your Mood</title>
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ==================== SITE-WIDE ANIMATED BACKGROUND ==================== -->
+    <div class="site-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="site-goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+              result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="site-bg-gradients">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+      <canvas class="site-noise-canvas" id="site-noise"></canvas>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="hero-section">
+      <canvas class="hero-noise-canvas" id="hero-noise"></canvas>
+      <div class="hero-vignette"></div>
+      <div class="hero-interactive"></div>
+
+      <div class="top-nav-bar">
+        <!-- Logo -->
+        <a href="#" class="logo-link">
+          <img src="img/logoooo.png" alt="MOODIY" class="logo-img" />
+        </a>
+
+        <!-- Main Navigation -->
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="#">INSTRUMENTS</a></li>
+            <li><a href="#">GENRES</a></li>
+            <li><a href="#">STATS</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </nav>
+
+        <!-- Aesthetic Lines -->
+        <div class="decor-lines">
+          <span class="line white"></span>
+          <span class="line blue"></span>
+          <span class="line white"></span>
+          <span class="line white"></span>
+        </div>
+      </div>
+
+      <!-- Main Title -->
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="blue-text">CHOOSE</span>
+          <span class="blue-text">YOUR</span>
+          <span class="white-text">MOOD</span>
+          <span class="blue-text">BY</span>
+          <span class="white-text">MELODY</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- ==================== INSTRUMENTS ACCORDION ==================== -->
+    <section class="instruments-section">
+      <div class="gallery-container">
+        <!-- Violin -->
+        <div class="gallery-item active" data-index="0">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?auto=format&fit=crop&q=80&w=800"
+              alt="Violin"
+            />
+          </div>
+        </div>
+
+        <!-- Drums -->
+        <div class="gallery-item" data-index="1">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&q=80&w=800"
+              alt="Drums"
+            />
+          </div>
+        </div>
+
+        <!-- Piano -->
+        <div class="gallery-item" data-index="2">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&q=80&w=800"
+              alt="Piano"
+            />
+          </div>
+        </div>
+
+        <!-- Guitar -->
+        <div class="gallery-item" data-index="3">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&q=80&w=800"
+              alt="Guitar"
+            />
+          </div>
+        </div>
+
+        <!-- Mixer -->
+        <div class="gallery-item" data-index="4">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800"
+              alt="Mixer"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dots for gallery -->
+      <div class="pagination-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+      </div>
+    </section>
+
+    <!-- ==================== GENRES ACCORDION ==================== -->
+    <section class="genres-section">
+      <div class="options">
+        <!-- Pop -->
+        <div
+          class="option active"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Pop Music</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">POP MUSIC</div>
+              <div class="sub">
+                Catchy melodies and rhythm-driven structures crafted to resonate
+                globally through emotional expression.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rock -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Rock Music</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">ROCK MUSIC</div>
+              <div class="sub">
+                Driven by amplified electric guitars, powerful drumbeats, and
+                raw vocal energy that defined generations.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hip-Hop -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Hip-Hop</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">HIP-HOP</div>
+              <div class="sub">
+                Rhythmic speech and poetic storytelling over heavy basslines,
+                sampling culture, and intricate beats.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jazz -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Jazz Music</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">JAZZ MUSIC</div>
+              <div class="sub">
+                Rooted in complex harmonies, swing rhythms, and expressive solo
+                improvisation straight from the soul.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classical -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Classical</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">CLASSICAL</div>
+              <div class="sub">
+                Timeless orchestral arrangements and intricate instrumental
+                compositions built upon centuries of tradition.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Electronic -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Electronic</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">ELECTRONIC</div>
+              <div class="sub">
+                Synthesizer-driven soundscapes, digital sound design, and
+                hypnotic pulse rhythms for immersive sound.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- R&B -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">R & B</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">R & B</div>
+              <div class="sub">
+                Smooth vocal harmonies blended with soulful grooves, rich
+                basslines, and contemporary urban soundscapes.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indie -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Indie Music</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">INDIE MUSIC</div>
+              <div class="sub">
+                Independent artistic freedom characterized by authentic acoustic
+                vibes and introspective lyricism.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lo-fi -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Lo-fi Beats</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">LO-FI BEATS</div>
+              <div class="sub">
+                Mellow beats infused with vinyl crackles and jazzy chord
+                progressions designed for focus and calm.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ambient -->
+        <div
+          class="option"
+          style="
+            --optionBackground: url(&quot;https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=1000&quot;);
+          "
+        >
+          <div class="shadow"></div>
+          <div class="vertical-title">Ambient</div>
+          <div class="label">
+            <div class="info">
+              <div class="main">AMBIENT</div>
+              <div class="sub">
+                Atmospheric tone textures and spacious sonic landscapes
+                prioritizing tone and mood over structural beats.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="options-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <!-- ==================== STATS SECTION ==================== -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <!-- Box 1 -->
+        <div class="stat-box">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+              <path
+                d="M12 14c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm7.5-3.25A3.25 3.25 0 0 0 17 5.75V3h-2v2.75a3.25 3.25 0 0 0 4.5 3z"
+              />
+            </svg>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-number" data-target="500">+0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">ARTISTS</div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="stat-box">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+              <path
+                d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 7h-2v2h-2v-2H8v-2h2v-2h2v2h2v2z"
+              />
+            </svg>
+          </div>
+          <div class="stat-divider"></div>
+          <div
+            class="stat-number"
+            data-target="10000"
+            data-prefix="+"
+            data-format="dot"
+          >
+            +0
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">ARCHIVE</div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="stat-box">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+              <path
+                d="M20 3v14a4 4 0 1 1-2-3.46V7.88l-8 2.67v8.91a4 4 0 1 1-2-3.46V3l12-4z"
+              />
+            </svg>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-number" data-target="14">+0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">INSTRUMENTS</div>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="stat-box">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"
+              />
+            </svg>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-number" data-target="800">+0</div>
+          <div class="stat-divider"></div>
+          <div class="stat-label">USERS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER & CONTACT ==================== -->
+    <footer class="footer-section">
+      <!-- Floating contact card over map -->
+      <div class="map-container">
+        <div class="map-bg"></div>
+
+        <div class="contact-card">
+          <div class="card-bg"></div>
+
+          <form class="contact-form" onsubmit="event.preventDefault()">
+            <div class="form-group">
+              <input type="text" id="name" placeholder=" " required />
+              <label for="name">NAME</label>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" placeholder=" " required />
+              <label for="email">E-MAIL</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="subject" placeholder=" " required />
+              <label for="subject">SUBJECT</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="message" placeholder=" " required />
+              <label for="message">MESSAGE</label>
+            </div>
+
+            <button type="submit" class="submit-btn">SUBMIT HERE</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Links & Newsletter -->
+      <div class="footer-bottom">
+        <div class="footer-content">
+          <div class="footer-col links-col">
+            <h4 class="col-title">Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Team</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col center-col">
+            <div class="brand-logo-container">
+              <img src="logoooo.png" alt="MOODIY Logo" class="brand-logo-img" />
+            </div>
+
+            <div class="newsletter-box">
+              <label for="newsletter-email" class="newsletter-label"
+                >Enter Email</label
+              >
+              <div class="newsletter-input-group">
+                <input
+                  type="email"
+                  id="newsletter-email"
+                  placeholder="email@domain.com"
+                />
+                <button type="button" class="newsletter-btn">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col copyright-col">
+            <p class="copyright-text">
+              &copy; 2026 MOODIY, All rights reserved. Designed & developed by
+              Zqr.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS Files -->
+    <script src="main.js"></script>
+    <script src="background.js"></script>
+  </body>
+</html>
