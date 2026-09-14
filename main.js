@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ---- شمارنده آمار ----
+  // for stats
   const statNumbers = document.querySelectorAll(".stat-number");
   let animated = false;
 
@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ---- گالری سازها ----
+  // gallery
+
   const galleryItems = document.querySelectorAll(".gallery-item");
   const paginationDots = document.querySelectorAll(".pagination-dot");
 
@@ -67,7 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     dot.addEventListener("click", () => setActiveGalleryItem(index));
   });
 
-  // ---- آکاردئون ژانرها ----
+  // gener
+
   const options = document.querySelectorAll(".option");
   const optionDots = document.querySelectorAll(".options-dot");
 
@@ -86,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
     dot.addEventListener("click", () => setActiveOption(index));
   });
 
-  // ---- حباب آبی که دنبال موس میاد ----
+  // bubble moving
+
   const interBubble = document.querySelector(".site-bg .interactive");
   const heroBubble = document.querySelector(".hero-interactive");
   let curX = 0,
@@ -112,7 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   move();
 
-  // ---- نویز خاکستری روی کل پس‌زمینه ----
+  // bg noise
+
   (function () {
     const canvas = document.getElementById("site-noise");
     if (!canvas) return;
@@ -145,7 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(drawNoise, 65);
   })();
 
-  // ---- نویز مخصوص عکس هدر ----
+  // bg header noise
+  
   (function () {
     const canvas = document.getElementById("hero-noise");
     if (!canvas) return;

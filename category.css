@@ -1,4 +1,3 @@
-/* ۱. تعریف فونت جدید */
 @font-face {
     font-family: 'Bridger';
     src: url('Bridger.woff2') format('woff2'), /* نام و پسوند فایل فونت خود را وارد کنید */
@@ -7,7 +6,6 @@
     font-style: normal;
 }
 
-/* ۲. اعمال فونت به کل صفحه */
 * {
     margin: 0;
     padding: 0;
@@ -15,19 +13,17 @@
     font-family: 'Bridger', 'Fraunces', 'Segoe UI', Tahoma, sans-serif; /* تغییر فونت اصلی */
 }
 
-/* --------------------------------------------------
-   SITE-WIDE ANIMATED BACKGROUND (gooey blobs + grain)
--------------------------------------------------- */
+
 :root {
   --site-bg1: rgb(215, 215, 218);
   --site-bg2: rgb(178, 178, 182);
 
-  --site-color1: 255, 255, 255;      /* سفید */
-  --site-color2: 90, 90, 90;         /* خاکستری تیره */
-  --site-color3: 170, 170, 170;      /* خاکستری میانه */
-  --site-color4: 40, 40, 40;         /* تقریبا مشکی */
-  --site-color5: 210, 210, 210;      /* خاکستری خیلی روشن */
-  --site-color-interactive: 59, 43, 238; /* آبی برند، فقط موقع موو موس */
+  --site-color1: 255, 255, 255;     
+  --site-color2: 90, 90, 90;         
+  --site-color3: 170, 170, 170;      
+  --site-color4: 40, 40, 40;         
+  --site-color5: 210, 210, 210;      
+  --site-color-interactive: 59, 43, 238; 
 
   --site-circle-size: 80%;
   --site-blending: multiply;
@@ -172,7 +168,6 @@ html, body {
     background-color: transparent;
 }
 
-/* کانتینر اصلی - تمام صفحه */
 .music-card {
     width: 100vw;
     min-height: 100vh;
@@ -181,7 +176,6 @@ html, body {
     background-color: transparent;
 }
 
-/* بخش هدر (تصویر پس‌زمینه پیانو) */
 .header-section {
     position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
@@ -207,7 +201,6 @@ html, body {
     text-transform: uppercase;
 }
 
-/* باکس سرچ */
 .search-box {
     display: flex;
     align-items: center;
@@ -240,7 +233,6 @@ html, body {
     max-width: 60%;
 }
 
-/* بخش لیست آهنگ‌ها */
 .songs-section {
     flex: 1;
     padding: 50px 80px;
@@ -249,7 +241,6 @@ html, body {
     background-color: transparent;
 }
 
-/* هدر جدول (افزایش فاصله زیر تیترها) */
 .table-header {
     display: grid;
     grid-template-columns: 80px 2fr 1.5fr 120px;
@@ -260,7 +251,6 @@ html, body {
     letter-spacing: 1.5px;
 }
 
-/* لیست آهنگ‌ها */
 .song-list {
     display: flex;
     flex-direction: column;
@@ -281,7 +271,6 @@ html, body {
     cursor: pointer;
 }
 
-/* افکت هاور (Hover) */
 .song-row:hover {
     background-color: #2a2a2a;
     color: #ffffff;
@@ -305,7 +294,6 @@ html, body {
     text-align: left;
 }
 
-/* نقطه‌های آبی سمت راست */
 .pagination-dots {
     position: absolute;
     right: 40px;

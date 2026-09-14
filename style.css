@@ -1,4 +1,4 @@
-/* این فایل فقط شامل استایلایی که تبدیل‌شون به Tailwind سخته */
+/* این فایل فقط شامل استایلایی که تبدیل‌شون به Tailwind سخته | for advanced animation */
 
 @font-face {
   font-family: "Bridger";
@@ -14,9 +14,7 @@ body {
   font-family: "Bridger", "Fraunces", sans-serif;
 }
 
-/* --------------------------------------------------
-   پس‌زمینه‌ی ی (blob) 
--------------------------------------------------- */
+/* حباب های بک گراند! | bg blobs */
 .site-bg {
   position: fixed;
   inset: 0;
@@ -48,18 +46,33 @@ body {
 }
 
 .site-bg .g1 {
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 0,
+      rgba(255, 255, 255, 0) 50%
+    )
+    no-repeat;
   animation: moveVertical 30s ease infinite;
 }
 
 .site-bg .g2 {
-  background: radial-gradient(circle at center, rgba(90, 90, 90, 0.8) 0, rgba(90, 90, 90, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(90, 90, 90, 0.8) 0,
+      rgba(90, 90, 90, 0) 50%
+    )
+    no-repeat;
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 20s reverse infinite;
 }
 
 .site-bg .g3 {
-  background: radial-gradient(circle at center, rgba(170, 170, 170, 0.8) 0, rgba(170, 170, 170, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(170, 170, 170, 0.8) 0,
+      rgba(170, 170, 170, 0) 50%
+    )
+    no-repeat;
   top: calc(10% + 200px);
   left: calc(10% - 500px);
   transform-origin: calc(50% + 400px);
@@ -67,14 +80,24 @@ body {
 }
 
 .site-bg .g4 {
-  background: radial-gradient(circle at center, rgba(40, 40, 40, 0.8) 0, rgba(40, 40, 40, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(40, 40, 40, 0.8) 0,
+      rgba(40, 40, 40, 0) 50%
+    )
+    no-repeat;
   transform-origin: calc(50% - 200px);
   animation: moveHorizontal 40s ease infinite;
   opacity: 0.7;
 }
 
 .site-bg .g5 {
-  background: radial-gradient(circle at center, rgba(210, 210, 210, 0.8) 0, rgba(210, 210, 210, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(210, 210, 210, 0.8) 0,
+      rgba(210, 210, 210, 0) 50%
+    )
+    no-repeat;
   width: 160%;
   height: 160%;
   top: -70%;
@@ -84,7 +107,12 @@ body {
 }
 
 .site-bg .interactive {
-  background: radial-gradient(circle at center, rgba(59, 43, 238, 0.8) 0, rgba(59, 43, 238, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(59, 43, 238, 0.8) 0,
+      rgba(59, 43, 238, 0) 50%
+    )
+    no-repeat;
   width: 100%;
   height: 100%;
   top: -50%;
@@ -98,26 +126,42 @@ body {
 }
 
 @keyframes moveInCircle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes moveVertical {
-  0% { transform: translateY(-50%); }
-  50% { transform: translateY(50%); }
-  100% { transform: translateY(-50%); }
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 @keyframes moveHorizontal {
-  0% { transform: translateX(-50%) translateY(-10%); }
-  50% { transform: translateX(50%) translateY(10%); }
-  100% { transform: translateX(-50%) translateY(-10%); }
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
 }
 
-/* --------------------------------------------------
-   جلوه‌های هدر (نویز و vignette)
--------------------------------------------------- */
+/* نویز هدر ( حالت سینمایی ) | header noise*/
 .hero-vignette {
   position: absolute;
   inset: 0;
@@ -129,8 +173,13 @@ body {
 }
 
 @keyframes heroVignetteFlicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .hero-interactive {
@@ -143,7 +192,12 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background: radial-gradient(circle at center, rgba(27, 18, 119, 0.8) 0, rgba(59, 43, 238, 0) 50%) no-repeat;
+  background: radial-gradient(
+      circle at center,
+      rgba(27, 18, 119, 0.8) 0,
+      rgba(59, 43, 238, 0) 50%
+    )
+    no-repeat;
   mix-blend-mode: screen;
 }
 
@@ -151,9 +205,7 @@ body {
   opacity: 0.8;
 }
 
-/* --------------------------------------------------
-   آکاردئون گالری سازها (بزرگ‌شدن با hover)
--------------------------------------------------- */
+/* آکاردئون گالری سازها | gallery animation */
 .gallery-item {
   transition:
     flex 0.6s cubic-bezier(0.25, 1, 0.5, 1),
@@ -188,9 +240,7 @@ body {
   }
 }
 
-/* --------------------------------------------------
-   آکاردئون ژانرها (باز و بسته شدن + متن عمودی)
--------------------------------------------------- */
+/*بخش ژانر موزیک | genre animation */
 .option {
   position: relative;
   overflow: hidden;
@@ -276,9 +326,7 @@ body {
   }
 }
 
-/* --------------------------------------------------
-   فرم تماس - لیبل شناور
--------------------------------------------------- */
+/* فرم تماس  | footer stuff */
 .form-group {
   position: relative;
   display: flex;
